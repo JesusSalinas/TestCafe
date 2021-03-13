@@ -1,0 +1,19 @@
+{
+  "name": "workshop_testecafe",
+  "version": "1.0.0",
+  "description": "test cases suit for workshop ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JesusSalinas/TestCafe.git"
+  },
+  "author": "Jesus Salinas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JesusSalinas/TestCafe/issues"
+  },
+  "homepage": "https://github.com/JesusSalinas/TestCafe#readme"
+}
