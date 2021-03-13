@@ -1,8 +1,8 @@
 import LoginPage from '../pages/LoginPage'
 import LogoutPage from '../pages/LogoutPage'
 import ProductsPage from '../pages/ProductsPage'
-import { CREDENTIALS } from '../data/Constants'
-import { URL } from '../data/Constants'
+import { CREDENTIALS } from '../utils/Constants'
+import { URL } from '../utils/Constants'
 
 fixture('Logout  feature testing')
     .page(URL)
