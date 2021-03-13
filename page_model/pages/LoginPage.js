@@ -6,6 +6,8 @@ class LoginPage {
         this.passwordField = Selector('input#password')
         this.loginButton = Selector('input#login-button')
         this.errorMessage = Selector('h3')
+        this.menuButton = Selector('button#react-burger-menu-btn')
+        this.logoutLink = Selector('a#logout_sidebar_link')
     }
 
     async submitLoginForm(username, password) {
@@ -17,14 +19,21 @@ class LoginPage {
 
     async validateErrorMessageInvalidLogin() {
         await t
-            .expect(this.errorMessage.exists).ok('Epic sadface: Username and password do not match any user in this service')
+            .expect(this.errorMessage.textContent).eql('Epic sadface: Username and password do not match any user in this service')
     }
 
     async validateLoginPage() {
         await t
             .expect(this.usernameField.exists).ok()
             .expect(this.passwordField.exists).ok()
-            .expect(this.loginButton.exists).ok('LOGINppppp6356')
+            .expect(this.loginButton.value).eql('LOGIN')
+    }
+
+
+    async logoutApplication() {
+        await t
+            .click(this.menuButton)
+            .click(this.logoutLink)
     }
 }
 export default new LoginPage

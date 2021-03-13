@@ -1,10 +1,9 @@
 import LoginPage from '../pages/LoginPage'
-import LogoutPage from '../pages/LogoutPage'
 import ProductsPage from '../pages/ProductsPage'
 import { CREDENTIALS } from '../utils/Constants'
 import { URL } from '../utils/Constants'
 
-fixture('Logout  feature testing')
+fixture('Test Scenario: Logout from SwagLabs application.')
     .page(URL)
 
 test
@@ -12,7 +11,7 @@ test
         await LoginPage.submitLoginForm(CREDENTIALS.VALID_USERS[0].USERNAME, CREDENTIALS.VALID_USERS[0].PASSWORD)
         await ProductsPage.validateProductsPage()
     })
-    ('Users do the logout for the application', async t => {
-        await LogoutPage.logoutApplication()
+    ('TC#3: Logout from products page.', async t => {
+        await LoginPage.logoutApplication()
         await LoginPage.validateLoginPage()
 })
