@@ -1,7 +1,6 @@
 import LoginPage from '../pages/LoginPage'
 import ProductsPage from '../pages/ProductsPage'
-import { CREDENTIALS } from '../utils/Constants'
-import { URL } from '../utils/Constants'
+import { CREDENTIALS, URL } from '../utils/Constants'
 
 fixture('Test Scenario: Logout from SwagLabs application.')
     .page(URL)

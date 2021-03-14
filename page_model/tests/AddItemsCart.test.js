@@ -1,15 +1,11 @@
-import LoginPage from '../pages/LoginPage'
+import { standardUser } from '../utils/Roles'
 import ProductsPage from '../pages/ProductsPage'
 import CartShoppingPage from '../pages/CartShoppingPage'
-import { CREDENTIALS } from '../utils/Constants'
-import { URL } from '../utils/Constants'
-import { getRandomNumber} from '../utils/helpers'
-import { addMultipleItems} from '../utils/helpers'
+import { getRandomNumber, addMultipleItems} from '../utils/Helpers'
 
 fixture('Test Scenario: Add items to the shopping cart.')
-    .page(URL)
     .beforeEach( async t => {
-        await LoginPage.submitLoginForm(CREDENTIALS.VALID_USERS[0].USERNAME, CREDENTIALS.VALID_USERS[0].PASSWORD)
+        await t.useRole(standardUser)
         await ProductsPage.validateProductsPage()
     })
 

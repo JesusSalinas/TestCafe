@@ -1,20 +1,23 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
 export const CREDENTIALS = {
     VALID_USERS: [
         {
-            USERNAME: 'standard_user',
-            PASSWORD: 'secret_sauce'
+            USERNAME: process.env.USERNAME,
+            PASSWORD: process.env.PASSWORD
         },
         {
             USERNAME: 'locked_out_user',
-            PASSWORD: 'secret_sauce'
+            PASSWORD: process.env.PASSWORD
         },
         {
             USERNAME: 'problem_user',
-            PASSWORD: 'secret_sauce'
+            PASSWORD: process.env.PASSWORD
         },
         {
             USERNAME: 'performance_glitch_user',
-            PASSWORD: 'secret_sauce'
+            PASSWORD: process.env.PASSWORD
         }
     ],
     INVALID_USER: {

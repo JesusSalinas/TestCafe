@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/JesusSalinas/TestCafe/issues"
   },
-  "homepage": "https://github.com/JesusSalinas/TestCafe#readme"
+  "homepage": "https://github.com/JesusSalinas/TestCafe#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }
