@@ -26,4 +26,4 @@ export const CREDENTIALS = {
     }
 }
 
-export const URL = 'https://www.saucedemo.com/'
+export const URL = process.env.URL
