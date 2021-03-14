@@ -13,6 +13,7 @@ fixture('Test Scenario: Checkout the purchase.')
         await t.useRole(standardUser)
         var amountItems = await ProductsPage.getAmountItemsFromInventory()
         var itemsQuantity = await getRandomNumber(amountItems)
+        t.ctx.itemsQuantity = itemsQuantity
         await addMultipleItems(itemsQuantity)
         await ProductsPage.navigateToShoppingCart()
         await CartShoppingPage.navigateToCheckoutFirstStep()
@@ -34,7 +35,7 @@ userInfo.forEach(data => {
     test('TC#9: Final order items', async t => {
         await CustomerInformationPage.fillInformationForm(data.FIRSTNAME, data.LASTNAME, data.ZIPCODE)
         await CustomerInformationPage.navigateToCheckoutSecondStep()
-        await OverviewPage.validateOverviewPage()
+        await OverviewPage.validateItemsInOverview(t.ctx.itemsQuantity)
     })
 
     test('TC#10: Complete a purchase', async t => {
@@ -43,24 +44,4 @@ userInfo.forEach(data => {
         await OverviewPage.finishPurchase()
         await SuccessPurchasePage.validateSuccessPurchasePage()
     })
-})
-
-test.skip('TC#8: Fill users information', async t => {
-    await CustomerInformationPage.fillInformationForm(USER_INFO[0].FIRSTNAME, USER_INFO[0].LASTNAME, USER_INFO[0].ZIPCODE)
-    await CustomerInformationPage.navigateToCheckoutSecondStep()
-    await OverviewPage.validateOverviewPage()
-})
-
-test.skip('TC#9: Final order items', async t => {
-    // await CustomerInformationPage.fillInformationForm('Jesus', 'Salinas', '55100')
-    // await CustomerInformationPage.navigateToCheckoutSecondStep()
-    // await OverviewPage.validateOverviewPage()
-    // await t.debug()
-})
-
-test.skip('TC#10: Complete a purchase', async t => {
-    await CustomerInformationPage.fillInformationForm('Jesus', 'Salinas', '55100')
-    await CustomerInformationPage.navigateToCheckoutSecondStep()
-    await OverviewPage.finishPurchase()
-    await SuccessPurchasePage.validateSuccessPurchasePage()
 })

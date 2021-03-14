@@ -17,6 +17,7 @@ class OverviewPage {
         this.subTotalLabel = Selector('.summary_subtotal_label')
         this.taxLabel = Selector('.summary_tax_label')
         this.totalLabel = Selector('.summary_total_label')
+        this.cartList = Selector('.cart_list')
     }
 
     async validateOverviewPage() {
@@ -41,6 +42,11 @@ class OverviewPage {
     async finishPurchase() {
         await t
             .click(this.finishButton)
+    }
+
+    async validateItemsInOverview(quantity) {
+        var value = await this.cartList.child('.cart_item').count
+        await t.expect(value).eql(quantity)
     }
 }
 export default new OverviewPage
